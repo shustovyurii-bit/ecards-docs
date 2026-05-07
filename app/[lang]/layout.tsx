@@ -11,11 +11,13 @@ export default async function LangLayout({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
+  console.error('[D] layout start lang=%s', lang)
   let pageMap: Awaited<ReturnType<typeof getPageMap>>
   try {
     pageMap = await getPageMap(`/${lang}`)
+    console.error('[D] layout getPageMap ok lang=%s entries=%s', lang, Array.isArray(pageMap) ? pageMap.length : typeof pageMap)
   } catch (err) {
-    console.error('[ecards-layout] getPageMap failed for lang=%s error=%s stack=%s', lang, String(err), err instanceof Error ? err.stack : '')
+    console.error('[D] layout getPageMap FAIL lang=%s err=%s', lang, String(err))
     throw err
   }
 
@@ -48,6 +50,7 @@ export default async function LangLayout({
     </Footer>
   )
 
+  console.error('[D] layout returning JSX lang=%s', lang)
   return (
     <Layout
       pageMap={pageMap}
