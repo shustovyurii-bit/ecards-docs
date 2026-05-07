@@ -11,7 +11,13 @@ export default async function LangLayout({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const pageMap = await getPageMap(`/${lang}`)
+  let pageMap: Awaited<ReturnType<typeof getPageMap>>
+  try {
+    pageMap = await getPageMap(`/${lang}`)
+  } catch (err) {
+    console.error('[ecards-layout] getPageMap failed for lang=%s error=%s stack=%s', lang, String(err), err instanceof Error ? err.stack : '')
+    throw err
+  }
 
   const navbar = (
     <Navbar

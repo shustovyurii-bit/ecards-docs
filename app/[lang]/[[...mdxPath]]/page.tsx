@@ -21,7 +21,13 @@ export default async function Page(props: {
   params: Promise<{ mdxPath: string[]; lang: string }>
 }) {
   const params = await props.params
-  const result = await importPage(params.mdxPath, params.lang)
+  let result: Awaited<ReturnType<typeof importPage>>
+  try {
+    result = await importPage(params.mdxPath, params.lang)
+  } catch (err) {
+    console.error('[ecards-page] importPage failed mdxPath=%s lang=%s error=%s stack=%s', params.mdxPath, params.lang, String(err), err instanceof Error ? err.stack : '')
+    throw err
+  }
   const { default: MDXContent, toc, metadata } = result
 
   return (
