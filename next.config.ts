@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+import nextra from 'nextra'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const withNextra = nextra({})
 
-export default nextConfig;
+export default withNextra({
+  i18n: {
+    locales: ['ru', 'en'],
+    defaultLocale: 'ru',
+  },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
+})
