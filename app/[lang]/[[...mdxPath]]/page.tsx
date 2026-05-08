@@ -1,3 +1,4 @@
+import type { ComponentType, ReactNode } from 'react'
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents } from '@/mdx-components'
 
@@ -18,10 +19,10 @@ export async function generateMetadata(props: {
   }
 }
 
-const Wrapper = useMDXComponents({}).wrapper as React.ComponentType<{
+const Wrapper = useMDXComponents({}).wrapper as ComponentType<{
   toc: unknown
   metadata: unknown
-  children: React.ReactNode
+  children: ReactNode
 }>
 
 export default async function Page(props: {

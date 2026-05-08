@@ -17,14 +17,6 @@ export default function SupportCTA() {
             >
               @ecards_support
             </a>
-            <a
-              href="https://t.me/tochka_cab_support"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-blue-300 px-3 py-1.5 text-sm font-medium text-blue-700 hover:bg-blue-100 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-900/50 transition-colors"
-            >
-              @tochka_cab_support
-            </a>
           </div>
         </div>
       </div>

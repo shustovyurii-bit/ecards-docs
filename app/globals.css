@@ -3,13 +3,13 @@
 
 @theme {
   --font-family-sans: var(--font-stem), ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #5744FF;
+  --color-brand-light: #BCB4FF;
 }
 
 :root {
   --nextra-primary-hue: 246;
   --nextra-primary-saturation: 100%;
-  --brand: #5744FF;
-  --brand-light: #BCB4FF;
 }
 
 body {
